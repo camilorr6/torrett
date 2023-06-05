@@ -5,8 +5,10 @@ import PersonalInfo from '../PersonalInfo/PersonalInfo';
 import StrengthsList from '../StrengthsList/StrengthsList';
 import { useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+import './GenomeContainer.css';
 
 const GenomeContainer = () => {
+  const [loading, setLoading] = useState(true);
   const [genome, setGenome] = useState(null);
   const { usernameId } = useParams();
 
@@ -17,36 +19,37 @@ const GenomeContainer = () => {
         const genomeData = response.data;
         setGenome(genomeData);
       } catch (error) {
-        console.error('Error fetching genome data:', error);
+        if (error.response && error.response.status === 404) {
+          setGenome(null); // Set genome to null to trigger the special page rendering
+        } else {
+          console.error('Error fetching genome data:', error);
+        }
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchGenomeData();
   }, [usernameId]);
 
-  if (!genome) {
+  if (loading) {
     return (
-      <Box
-        sx={{
-          backgroundColor: '#27292D',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          
-        }}
-      >
-        {genome === null ? (
-          <CircularProgress sx={{ color: '#CDDC39' }} />
-        ) : (
-          <div>Genome data does not exist.</div>
-        )}
+      <Box className="genome-container-loading">
+        <CircularProgress sx={{ color: '#CDDC39' }} />
       </Box>
     );
   }
-console.log(genome.strengths)
+
+  if (genome === null) {
+    return (
+      <Box className="genome-container-error">
+        <div>Genome data does not exist or a 404 error occurred.</div>
+      </Box>
+    );
+  }
+
   return (
-    <Box sx={{    backgroundColor: '#27292D', padding: '20px', maxWidth: '700px', margin: '0 auto' }}>
+    <Box className="genome-container">
       <PersonalInfo genome={genome} />
       <StrengthsList strengths={genome.strengths} />
     </Box>
@@ -54,4 +57,3 @@ console.log(genome.strengths)
 };
 
 export default GenomeContainer;
-

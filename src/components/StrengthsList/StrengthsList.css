@@ -1,0 +1,33 @@
+.strengths-list-container {
+    background-color: #27292D;
+  }
+  
+  .strengths-level-container {
+    margin-bottom: 1rem;
+  }
+  
+  .strengths-level-title {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+  }
+  
+  .strengths-level-text {
+    margin-left: 0.5rem;
+  }
+  
+  .strengths-chip-container {
+    margin-top: 0.5rem;
+  }
+  
+  .strengths-chip {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+    background-color: #383B40;
+  }
+  
+  .strengths-no-skills {
+    color: #FFFFFF;
+  }
+  

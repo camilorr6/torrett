@@ -1,0 +1,25 @@
+.skill-dialog-container {
+    background-color: #27292D;
+  }
+  
+  .skill-dialog-appbar {
+    background-color: #27292D;
+  }
+  
+  .skill-dialog-title {
+    flex-grow: 1;
+    color: #FFFFFF;
+  }
+  
+  .skill-dialog-list {
+    background-color: #27292D;
+  }
+  
+  .skill-dialog-primary {
+    color: #FFFFFF;
+  }
+  
+  .skill-dialog-divider {
+    background-color: #FFFFFF;
+  }
+  

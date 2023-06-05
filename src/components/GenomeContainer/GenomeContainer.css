@@ -1,0 +1,25 @@
+.genome-container {
+    background-color: #27292D;
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .genome-container-loading {
+    background-color: #27292D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #FFFFFF;
+  }
+  
+  .genome-container-error {
+    background-color: #27292D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #FFFFFF;
+  }
+  

@@ -1,0 +1,35 @@
+.personal-info-container {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  
+  .personal-info-wrapper {
+    margin: 0 2px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  
+  .personal-info-name {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .personal-info-summary {
+    color: #fff;
+    font-size: 16px;
+    max-width: 400px; 
+    max-height: 110px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  
+  .personal-info-divider {
+    background-color: #fff;
+  }
+  

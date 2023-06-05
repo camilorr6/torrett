@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
+import './SkillDialog.css';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -21,28 +22,28 @@ const SkillDialog = ({ open, onClose, skill }) => {
   };
 
   return (
-    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} sx={{ backgroundColor: '#27292D' }}>
-      <AppBar sx={{ position: 'relative', backgroundColor: '#27292D' }}>
+    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition} className="skill-dialog-container">
+      <AppBar position="relative" className="skill-dialog-appbar" sx={{ backgroundColor: '#27292D' }}>
         <Toolbar>
           <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
             <CloseIcon />
           </IconButton>
-          <Typography sx={{ ml: 2, flex: 1, color: '#FFFFFF' }} variant="h6" component="div">
+          <Typography variant="h6" component="div" className="skill-dialog-title">
             {skill.name}
           </Typography>
         </Toolbar>
       </AppBar>
-      <List sx={{ backgroundColor: '#27292D' }}>
+      <List className="skill-dialog-list">
         <ListItem>
-          <ListItemText primary={`Proficiency: ${skill.proficiency}`} primaryTypographyProps={{ style: { color: '#FFFFFF' } }} />
+          <ListItemText primary={`Proficiency: ${skill.proficiency}`} primaryTypographyProps={{ className: 'skill-dialog-primary' }} />
         </ListItem>
-        <Divider style={{ backgroundColor: '#FFFFFF' }} />
+        <Divider className="skill-dialog-divider" />
         <ListItem>
-          <ListItemText primary={`Recommendation Weight: ${skill.weight}`} primaryTypographyProps={{ style: { color: '#FFFFFF' } }} />
+          <ListItemText primary={`Recommendation Weight: ${skill.weight}`} primaryTypographyProps={{ className: 'skill-dialog-primary' }} />
         </ListItem>
-        <Divider style={{ backgroundColor: '#FFFFFF' }} />
+        <Divider className="skill-dialog-divider" />
         <ListItem>
-          <ListItemText primary={`Recommendations: ${skill.recommendations}`} primaryTypographyProps={{ style: { color: '#FFFFFF' } }} />
+          <ListItemText primary={`Recommendations: ${skill.recommendations}`} primaryTypographyProps={{ className: 'skill-dialog-primary' }} />
         </ListItem>
       </List>
     </Dialog>
@@ -50,4 +51,3 @@ const SkillDialog = ({ open, onClose, skill }) => {
 };
 
 export default SkillDialog;
-

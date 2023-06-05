@@ -1,0 +1,20 @@
+.navbar {
+    flex-grow: 1;
+    width: 100%;
+  }
+  
+  .navbar .appbar {
+    background-color: #27292D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .navbar .toolbar {
+    justify-content: space-around;
+  }
+  
+  .navbar .sign-in {
+    display: flex;
+    margin-left: 2px;
+    color: #CDDC39;
+  }
+  

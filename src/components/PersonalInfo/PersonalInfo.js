@@ -3,36 +3,27 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
+import './PersonalInfo.css';
 
 const PersonalInfo = ({ genome }) => {
-  if (!genome) {
-    return <div>Loading...</div>;
-  }
-
   const { name, picture, summaryOfBio } = genome.person;
 
   return (
-    <Box sx={{ width: '100%', mb: 4 }}>
-      <Box
-        sx={{
-          my: 0,
-          mx: 2,
-          textAlign: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 2,
-        }}
-      >
-        <Avatar alt={name} src={picture} sx={{ width: 80, height: 80 }} />
-        <Typography gutterBottom variant="h4" component="div" sx={{ color: '#fff' }}>
+    <Box className="personal-info-container">
+      <Box className="personal-info-wrapper">
+      <Avatar
+  alt={name}
+  src={picture}
+  style={{ width: '80px', height: '80px' }}
+/>
+        <Typography gutterBottom variant="h4" component="div" className="personal-info-name">
           {name}
         </Typography>
-        <Typography gutterBottom variant="subtitle1" component="div" sx={{ color: '#fff' }}>
+        <Typography gutterBottom variant="subtitle1" component="div" className="personal-info-summary">
           {summaryOfBio}
         </Typography>
       </Box>
-      <Divider variant="middle" sx={{ backgroundColor: '#FFFFFF' }} />
+      <Divider variant="middle" className="personal-info-divider" />
     </Box>
   );
 };

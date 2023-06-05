@@ -70,12 +70,14 @@ const MyNavbar = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, width: '100%', backgroundColor: '#27292D' }}>
-      <AppBar position="static" sx={{ backgroundColor: '#27292D', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
-        <Toolbar sx={{ justifyContent: 'space-around' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <img src={process.env.PUBLIC_URL + '/img/logo.png'} alt="logo" style={{ width: '100px', height: 'auto' }} />
-          </Link>
+    <Box className="navbar" sx={{ flexGrow: 1, width: '100%' }}>
+      <AppBar position="static" className="appbar" sx={{ backgroundColor: '#27292D', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
+        <Toolbar className="toolbar" sx={{ justifyContent: 'space-around' }}>
+          <img
+            src={process.env.PUBLIC_URL + '/img/logo.png'}
+            alt="logo"
+            style={{ width: '110px', height: 'auto' }}
+          />
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -89,7 +91,7 @@ const MyNavbar = () => {
             />
           </Search>
           <Link to="/signIn" style={{ textDecoration: 'none' }}>
-            <Box sx={{ display: 'flex', ml: 2, color: '#CDDC39' }}>
+            <Box className="sign-in" sx={{ display: 'flex', ml: 2, color: '#CDDC39' }}>
               <Typography variant="body3">SIGN IN</Typography>
             </Box>
           </Link>

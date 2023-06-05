@@ -6,6 +6,7 @@ import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import ElderlyIcon from '@mui/icons-material/Elderly';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import SkillDialog from '../SkillDialog/SkillDialog';
+import './StrengthsList.css';
 
 const StrengthsList = ({ strengths }) => {
   const proficiencyLevels = {
@@ -34,8 +35,8 @@ const StrengthsList = ({ strengths }) => {
   };
 
   return (
-    <div sx={{ backgroundColor: '#27292D' }}>
-      <Typography variant="h4" gutterBottom color="#FFFFFF">
+    <div className="strengths-list-container">
+      <Typography variant="h6" gutterBottom color="#FFFFFF">
         Skills and Experiences
       </Typography>
 
@@ -43,24 +44,29 @@ const StrengthsList = ({ strengths }) => {
         const { title, skills, icon } = proficiencyLevels[level];
 
         return (
-          <div key={level} style={{ marginBottom: '1rem' }}>
-            <Typography variant="h6" gutterBottom color="#FFFFFF" display="flex" alignItems="center">
+          <div key={level} className="strengths-level-container">
+            <Typography variant="subtitle1" gutterBottom color="#FFFFFF" className="strengths-level-title">
               {icon}
-              <span style={{ marginLeft: '0.5rem' }}>{title}</span>
+              <span className="strengths-level-text">{title}</span>
             </Typography>
             {skills.length > 0 ? (
-              <div style={{ marginTop: '0.5rem' }}>
+              <div className="strengths-chip-container">
                 {skills.map((strength) => (
                   <Chip
                     key={strength.id}
                     label={strength.name}
                     onClick={() => handleChipClick(strength)}
-                    sx={{ marginRight: '0.5rem', marginBottom: '0.5rem', color: '#FFFFFF', backgroundColor: '#383B40' }}
+                    sx={{
+                      marginRight: '0.5rem',
+                      marginBottom: '0.5rem',
+                      color: '#FFFFFF',
+                      backgroundColor: '#383B40',
+                    }}
                   />
                 ))}
               </div>
             ) : (
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="textSecondary" className="strengths-no-skills">
                 No skills in this category
               </Typography>
             )}
@@ -80,4 +86,3 @@ const StrengthsList = ({ strengths }) => {
 };
 
 export default StrengthsList;
-
