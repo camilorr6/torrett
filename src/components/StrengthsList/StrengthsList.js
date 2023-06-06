@@ -14,7 +14,7 @@ const StrengthsList = ({ strengths }) => {
     expert: { title: 'Expert', skills: [], icon: <DirectionsRunIcon /> },
     proficient: { title: 'Proficient', skills: [], icon: <DirectionsBikeIcon /> },
     novice: { title: 'Beginner', skills: [], icon: <ElderlyIcon /> },
-    interested: { title: 'No Experience but Interested', skills: [], icon: <DirectionsWalkIcon /> },
+    "no-experience-interested": { title: 'No Experience but Interested', skills: [], icon: <DirectionsWalkIcon /> },
   };
 
   strengths.forEach((strength) => {
@@ -66,7 +66,7 @@ const StrengthsList = ({ strengths }) => {
                 ))}
               </div>
             ) : (
-              <Typography variant="body2" color="textSecondary" className="strengths-no-skills">
+              <Typography variant="body2" color="#FFFFFF" className="strengths-no-skills">
                 No skills in this category
               </Typography>
             )}

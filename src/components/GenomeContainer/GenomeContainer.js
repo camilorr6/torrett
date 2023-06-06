@@ -12,6 +12,7 @@ const GenomeContainer = () => {
   const [genome, setGenome] = useState(null);
   const { usernameId } = useParams();
 
+
   useEffect(() => {
     const fetchGenomeData = async () => {
       try {
@@ -20,7 +21,7 @@ const GenomeContainer = () => {
         setGenome(genomeData);
       } catch (error) {
         if (error.response && error.response.status === 404) {
-          setGenome(null); // Set genome to null to trigger the special page rendering
+          setGenome(null); 
         } else {
           console.error('Error fetching genome data:', error);
         }
