@@ -12,7 +12,7 @@ function App() {
         <MyNavbar />
         <Routes>
           <Route path="/" element={<GenomeContainer />} />
-          <Route path="/api/bios/:usernameId" element={<GenomeContainer />} />
+          <Route path="/username/:usernameId" element={<GenomeContainer />} />
           <Route path="/signIn" element={<GenomeContainer />} />
         </Routes>
       </Router>

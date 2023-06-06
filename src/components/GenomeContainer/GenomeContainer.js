@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { axiosIns }  from '../../app/api/axiosIns'
 import Box from '@mui/material/Box';
 import PersonalInfo from '../PersonalInfo/PersonalInfo';
 import StrengthsList from '../StrengthsList/StrengthsList';
@@ -16,7 +16,7 @@ const GenomeContainer = () => {
   useEffect(() => {
     const fetchGenomeData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/bios/${usernameId}`);
+        const response = await axiosIns.get(`/username/${usernameId}`);
         const genomeData = response.data;
         setGenome(genomeData);
       } catch (error) {
