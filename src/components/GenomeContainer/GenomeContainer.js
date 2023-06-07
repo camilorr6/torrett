@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { axiosIns }  from '../../app/api/axiosIns'
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import PersonalInfo from '../PersonalInfo/PersonalInfo';
 import StrengthsList from '../StrengthsList/StrengthsList';
