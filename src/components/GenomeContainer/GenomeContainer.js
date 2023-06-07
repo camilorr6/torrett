@@ -16,7 +16,7 @@ const GenomeContainer = () => {
   useEffect(() => {
     const fetchGenomeData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/bios/${usernameId}`);
+        const response = await axios.get(`https://torre.bio/api/bios/${usernameId}`);
         const genomeData = response.data;
         setGenome(genomeData);
       } catch (error) {

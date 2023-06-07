@@ -6,7 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import SignInDialog from '../SignInDialog/SignInDialog';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -49,6 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const MyNavbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (event) => {
@@ -67,6 +69,12 @@ const MyNavbar = () => {
     if (event.key === 'Enter') {
       handleSearch(event);
     }
+  };
+
+  const handleSignIn = (username, password) => {
+    console.log('Username:', username);
+    console.log('Password:', password);
+    setIsDialogOpen(false);
   };
 
   return (
@@ -90,11 +98,12 @@ const MyNavbar = () => {
               onKeyDown={handleKeyDown}
             />
           </Search>
-          <Link to="/signIn" style={{ textDecoration: 'none' }}>
+          <div style={{ textDecoration: 'none', cursor: 'pointer' }} onClick={() => setIsDialogOpen(true)}>
             <Box className="sign-in" sx={{ display: 'flex', ml: 2, color: '#CDDC39' }}>
               <Typography variant="body3">SIGN IN</Typography>
             </Box>
-          </Link>
+          </div>
+          <SignInDialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)} onSignIn={handleSignIn} />
         </Toolbar>
       </AppBar>
     </Box>

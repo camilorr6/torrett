@@ -1,0 +1,33 @@
+.dialog {
+    background-color: #27292D;
+  }
+  
+  .title {
+    color: #FFFFFF;
+  }
+  
+  .dialogContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .field {
+    margin-bottom: 4px;
+  }
+  
+  .label {
+    color: white;
+  }
+  
+  .input {
+    color: white;
+  }
+  
+  .placeholder {
+    color: white;
+  }
+  
+  .cta {
+    color: #CDDC39;
+  }
+  
