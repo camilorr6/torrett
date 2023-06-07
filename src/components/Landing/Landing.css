@@ -1,0 +1,9 @@
+.landing {
+    color: #CDDC39;
+    background-color: #27292D;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
