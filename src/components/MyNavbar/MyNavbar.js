@@ -82,7 +82,7 @@ const MyNavbar = () => {
       <AppBar position="static" className="appbar" sx={{ backgroundColor: '#27292D', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)' }}>
         <Toolbar className="toolbar" sx={{ justifyContent: 'space-around' }}>
           <img
-            src={process.env.PUBLIC_URL + '/img/logo.png'}
+            src={'./img/logo.png'}
             alt="logo"
             style={{ width: '110px', height: 'auto' }}
           />
