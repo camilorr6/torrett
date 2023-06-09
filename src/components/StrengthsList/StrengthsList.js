@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
@@ -24,11 +23,9 @@ const StrengthsList = ({ strengths, usernameId }) => {
     }
   });
 
-  const [selectedChip, setSelectedChip] = useState(null);
   const navigate = useNavigate();
 
   const handleChipClick = (strength) => {
-    setSelectedChip(strength);
     navigate(`/api/bios/${usernameId}/${strength.id}`);
   };
 
