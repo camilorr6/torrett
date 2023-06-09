@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import './PersonalInfo.css';
 
 const PersonalInfo = ({ genome }) => {
-  const { name, picture, summaryOfBio } = genome.person;
+  const { name, picture, summaryOfBio } = genome;
 
   return (
     <Box className="personal-info-container">

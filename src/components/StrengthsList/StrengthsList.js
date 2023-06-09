@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import ElderlyIcon from '@mui/icons-material/Elderly';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
-import SkillDialog from '../SkillDialog/SkillDialog';
 import './StrengthsList.css';
 
-const StrengthsList = ({ strengths }) => {
+const StrengthsList = ({ strengths, usernameId }) => {
   const proficiencyLevels = {
     master: { title: 'Master', skills: [], icon: <DirectionsRunIcon /> },
     expert: { title: 'Expert', skills: [], icon: <DirectionsRunIcon /> },
@@ -25,13 +25,11 @@ const StrengthsList = ({ strengths }) => {
   });
 
   const [selectedChip, setSelectedChip] = useState(null);
+  const navigate = useNavigate();
 
   const handleChipClick = (strength) => {
     setSelectedChip(strength);
-  };
-
-  const handleCloseDialog = () => {
-    setSelectedChip(null);
+    navigate(`/api/bios/${usernameId}/${strength.id}`);
   };
 
   return (
@@ -73,14 +71,6 @@ const StrengthsList = ({ strengths }) => {
           </div>
         );
       })}
-
-      {selectedChip && (
-        <SkillDialog
-          open={true}
-          onClose={handleCloseDialog}
-          skill={selectedChip}
-        />
-      )}
     </div>
   );
 };

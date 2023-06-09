@@ -10,18 +10,21 @@ import './GenomeContainer.css';
 const GenomeContainer = () => {
   const [loading, setLoading] = useState(true);
   const [genome, setGenome] = useState(null);
+  const [strengths, setStrengths] = useState(null)
   const { usernameId } = useParams();
-
 
   useEffect(() => {
     const fetchGenomeData = async () => {
       try {
-        const response = await axios.get(`https://torre.bio/api/bios/${usernameId}`);
-        const genomeData = response.data;
+        const responseBio = await axios.get(`https://servertt.herokuapp.com/api/basic-info/${usernameId}`);
+        const responseStrengths = await axios.get(`https://servertt.herokuapp.com/api/strengths/${usernameId}`);
+        const genomeData = responseBio.data;
+        const StrengthsData = responseStrengths.data;
         setGenome(genomeData);
+        setStrengths(StrengthsData);
       } catch (error) {
         if (error.response && error.response.status === 404) {
-          setGenome(null); 
+          setGenome(null);
         } else {
           console.error('Error fetching genome data:', error);
         }
@@ -29,14 +32,15 @@ const GenomeContainer = () => {
         setLoading(false);
       }
     };
-
+  
     fetchGenomeData();
   }, [usernameId]);
+
 
   if (loading) {
     return (
       <Box className="genome-container-loading">
-        <CircularProgress sx={{ color: '#CDDC39' }} />
+        <CircularProgress sx={{ color:'#CDDC39' }} />
       </Box>
     );
   }
@@ -52,9 +56,10 @@ const GenomeContainer = () => {
   return (
     <Box className="genome-container">
       <PersonalInfo genome={genome} />
-      <StrengthsList strengths={genome.strengths} />
+      <StrengthsList strengths={strengths} usernameId={usernameId} />
     </Box>
   );
 };
 
 export default GenomeContainer;
+

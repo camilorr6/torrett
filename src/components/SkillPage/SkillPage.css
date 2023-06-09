@@ -1,0 +1,39 @@
+.skill-page-container {
+  background-color: #27292D;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+.skill-page-toolbar {
+  display: flex;
+  align-items: start;
+  padding: 0.5rem 0;
+}
+
+.skill-page-title {
+  flex-grow: 1;
+  text-align: start;
+}
+
+.skill-page-list {
+  padding: 1rem 0;
+}
+
+.skill-page-primary {
+  color: white;
+}
+
+.skill-page-divider {
+  background-color: white;
+}
+
+.skill-page-list-item {
+  color: white;
+}

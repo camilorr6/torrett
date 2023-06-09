@@ -72,8 +72,6 @@ const MyNavbar = () => {
   };
 
   const handleSignIn = (username, password) => {
-    console.log('Username:', username);
-    console.log('Password:', password);
     setIsDialogOpen(false);
   };
 
